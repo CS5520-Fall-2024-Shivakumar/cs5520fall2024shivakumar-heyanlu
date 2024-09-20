@@ -14,6 +14,6 @@ public class AboutMeButtonClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(context, "Name: Yanlu He\nEmail: yanlu.he@example.com", Toast.LENGTH_LONG).show();
+        Toast.makeText(context, "Name: Yanlu He\nEmail: he.yanl@northeastern.edu", Toast.LENGTH_LONG).show();
     }
 }
