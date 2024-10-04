@@ -65,5 +65,41 @@ public class CalculatorActivity extends AppCompatActivity {
 
     }
 
+    private void getResult() {
+        //easy to process the last character
+        expression.append(' ');
 
+        char operation = '+';
+        String numbers = "0123456789";
+        int result = 0;
+        StringBuilder currentNumber = new StringBuilder();
+
+        for (int i = 0; i < expression.length(); i++) {
+            char c = expression.charAt(i);
+
+            if(numbers.indexOf(c) != -1) {
+                currentNumber.append(c);
+            } else {
+                if (currentNumber.length() > 0) {
+                    int number = Integer.parseInt(currentNumber.toString());
+
+                    if (operation == '+') {
+                        result += number;
+                    } else if (operation == '-') {
+                        result -= number;
+                    } else if (operation == '*') {
+                        result *= number;
+                    } else {
+                        result /= number;
+                    }
+                    currentNumber.setLength(0);
+                }
+
+                operation = c;
+            }
+        }
+        calcText.setText(String.valueOf(result));
+        expression.setLength(0);
+        expression.append(result);
+    }
 }
