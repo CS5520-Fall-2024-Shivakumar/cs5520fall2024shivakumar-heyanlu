@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Add new contact to the contactActivity
+ */
 public class AddContactActivity extends AppCompatActivity {
     private EditText name;
     private EditText phoneNumber;
@@ -33,6 +35,7 @@ public class AddContactActivity extends AppCompatActivity {
                 String contactName = name.getText().toString().trim();
                 String contactPhoneNumber = phoneNumber.getText().toString().trim();
 
+                //Adds an extra piece of data to the resultIntent (pass data back to the calling activity)
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("name", contactName);
                 resultIntent.putExtra("phone_number", contactPhoneNumber);

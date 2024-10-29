@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".CalculatorActivity" />
         <activity android:name=".ContactsActivity" />
+        <activity android:name=".AddContactActivity" />
     </application>
 
 </manifest>

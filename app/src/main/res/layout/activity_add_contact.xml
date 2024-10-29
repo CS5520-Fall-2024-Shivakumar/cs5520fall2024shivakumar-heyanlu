@@ -22,7 +22,8 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="40dp"/>
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"/>
 
     <Button
         android:id="@+id/buttonSave"
@@ -32,6 +33,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextPhoneNumber"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="24dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
