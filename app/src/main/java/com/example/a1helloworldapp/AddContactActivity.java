@@ -30,6 +30,14 @@ public class AddContactActivity extends AppCompatActivity {
         saveContactButton = findViewById(R.id.buttonSave);
 
         addContactButtonListener();
+
+        Button backButton = findViewById(R.id.backButton3);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void addContactButtonListener() {

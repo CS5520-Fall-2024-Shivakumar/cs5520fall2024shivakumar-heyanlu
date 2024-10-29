@@ -18,7 +18,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 
 /**
- * Adapter to receive the list of contacts and a click listener
+ * Adapter: connect data source and the user interface
  */
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactViewHolder> {
     private List<Contact> contactsList;
@@ -29,6 +29,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         void onContactDelete(int position);
     }
 
+    //Adapter to receive the list of contacts and a click listener
     public ContactsAdapter(List<Contact> contactsList, OnContactClickListener listener) {
         this.contactsList = contactsList;
         this.listener = listener;
@@ -48,6 +49,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         holder.nameTextView.setText(contact.getName());
         holder.phoneTextView.setText(contact.getPhoneNumber());
 
+        //Handle the Visibility
         holder.editName.setText(contact.getName());
         holder.editPhone.setText(contact.getPhoneNumber());
         holder.editName.setVisibility(View.GONE);
@@ -75,12 +77,12 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
                 return;
             }
 
+            //Set value and update visibility
             contact.setName(newName);
             contact.setPhoneNumber(newPhone);
             holder.nameTextView.setText(newName);
             holder.phoneTextView.setText(newPhone);
 
-            //Handle visibility
             holder.nameTextView.setVisibility(View.VISIBLE);
             holder.phoneTextView.setVisibility(View.VISIBLE);
             holder.editName.setVisibility(View.GONE);
@@ -94,6 +96,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
 
         //Deletion
         holder.deleteButton.setOnClickListener(v -> {
+            //forwards the call to the actual method in ContactsActivity
             listener.onContactDelete(position);
         });
     }

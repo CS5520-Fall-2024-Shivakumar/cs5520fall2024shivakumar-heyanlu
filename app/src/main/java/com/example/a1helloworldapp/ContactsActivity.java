@@ -3,6 +3,8 @@ package com.example.a1helloworldapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,6 +58,14 @@ public class ContactsActivity extends AppCompatActivity {
         findViewById(R.id.floatingActionButton).setOnClickListener(view -> {
             Intent intent = new Intent(ContactsActivity.this, AddContactActivity.class);
             startActivityForResult(intent, ADD_CONTACT_REQUEST);
+        });
+
+        Button backButton = findViewById(R.id.backButton2);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
         });
     }
 
