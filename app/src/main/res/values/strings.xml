@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">A1 Hello World App</string>
+    <string name="add_contact">Add new contact</string>
 </resources>

@@ -31,5 +31,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //contacts collector button
+        Button contactButton = findViewById(R.id.button_contacts);
+        contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ContactsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
