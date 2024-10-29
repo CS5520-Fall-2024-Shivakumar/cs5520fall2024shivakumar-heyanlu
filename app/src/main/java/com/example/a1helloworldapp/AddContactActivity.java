@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * Add new contact to the contactActivity
@@ -17,7 +21,7 @@ public class AddContactActivity extends AppCompatActivity {
     private Button saveContactButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
 
@@ -35,13 +39,17 @@ public class AddContactActivity extends AppCompatActivity {
                 String contactName = name.getText().toString().trim();
                 String contactPhoneNumber = phoneNumber.getText().toString().trim();
 
-                //Adds an extra piece of data to the resultIntent (pass data back to the calling activity)
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("name", contactName);
-                resultIntent.putExtra("phone_number", contactPhoneNumber);
+                if (contactName.isEmpty() || contactPhoneNumber.isEmpty()) {
+                    Snackbar.make(findViewById(R.id.buttonSave), "Name or Phone number cannot be empty", Snackbar.LENGTH_SHORT).show();
+                } else {
+                    //Adds an extra piece of data to the resultIntent (pass data back to the calling activity)
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra("name", contactName);
+                    resultIntent.putExtra("phone_number", contactPhoneNumber);
 
-                setResult(Activity.RESULT_OK, resultIntent);
-                finish();
+                    setResult(Activity.RESULT_OK, resultIntent);
+                    finish();
+                }
             }
         });
     }

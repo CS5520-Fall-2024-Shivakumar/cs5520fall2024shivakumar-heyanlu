@@ -44,7 +44,7 @@ public class ContactsActivity extends AppCompatActivity {
 
             @Override
             public void onContactDelete(int position) {
-                onContactDelete(position);
+                ContactsActivity.this.onContactDelete(position);
             }
         });
 
