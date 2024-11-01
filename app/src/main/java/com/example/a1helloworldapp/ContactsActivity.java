@@ -69,6 +69,23 @@ public class ContactsActivity extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("contactsList", new ArrayList<>(contactsList));
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null) {
+            contactsList.clear();
+            contactsList.addAll((List<Contact>) savedInstanceState.getSerializable("contactsList"));
+            contactsAdapter.notifyDataSetChanged();
+        }
+    }
+
     public void onContactDelete(int position) {
         contactsList.remove(position);
         contactsAdapter.notifyItemRemoved(position);
